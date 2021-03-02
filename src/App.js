@@ -1,6 +1,9 @@
 import React from "react";
+import { Provider } from "react-redux";
+import { store } from "./store/store";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
-import Button from "@material-ui/core/Button";
+import SideBar from "./components/SideBar";
+import Usuarios from "./components/Usuarios";
 
 const theme = createMuiTheme({
   palette: {
@@ -12,13 +15,14 @@ const theme = createMuiTheme({
 
 function App() {
   return (
-    <ThemeProvider theme={theme}>
-      <div className="App">
-        <Button variant="contained" color="primary">
-          Fala dev
-        </Button>
-      </div>
-    </ThemeProvider>
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        <div className="App">
+          <SideBar />
+          <Usuarios />
+        </div>
+      </ThemeProvider>
+    </Provider>
   );
 }
 
