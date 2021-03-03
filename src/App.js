@@ -1,9 +1,11 @@
+import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import React from "react";
 import { Provider } from "react-redux";
 import { store } from "./store/store";
-import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
-import SideBar from "./components/SideBar";
-import Usuarios from "./components/Usuarios";
+
+import Routes from "./routes";
+
+import "./css/dashboard.css";
 
 const theme = createMuiTheme({
   palette: {
@@ -17,10 +19,7 @@ function App() {
   return (
     <Provider store={store}>
       <ThemeProvider theme={theme}>
-        <div className="App">
-          <SideBar />
-          <Usuarios />
-        </div>
+        <Routes />
       </ThemeProvider>
     </Provider>
   );
